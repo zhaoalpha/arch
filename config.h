@@ -31,7 +31,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "", "", "", "", "", "", "", "﬏", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -76,6 +76,8 @@ static const char *lowervolume[] = { "amixer", "-q", "set", "Master", "5%-", "un
 static const char *mutevolume[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *killtrayercmd[]  = { "/home/zhao/arch/dwm/scripts/kill_trayer.sh", NULL };
+static const char *trayercmd[]  = { "trayer", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -86,6 +88,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_z,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = killtrayercmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = trayercmd } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
